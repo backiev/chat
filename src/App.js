@@ -1,6 +1,6 @@
 import './App.css';
 import { Login } from './Login';
-import './main.sass';
+import { Register } from './Register';
 import './normalize.css';
 
 
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <Login />
+      <Register />
     </div>
   );
 }
