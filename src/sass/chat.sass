@@ -1,0 +1,98 @@
+.container
+    width: 60%
+    height: 80%
+    border: 1px solid #FFF
+    border-radius: 30px
+    overflow: hidden
+    color: white
+    position: relative
+
+.chat
+    display: flex
+    flex-direction: row
+    // border-radius: 
+
+    height: 100%
+    // overflow: hidden
+    .sidebar
+        // height: 100%
+        flex: 1
+    .chatbar
+        // height: 100%
+        flex: 2
+
+.sidebar
+    background-color: #39375A
+    // overflow-y: scroll
+
+    .userLogin
+        padding: 10px 5px
+        background-color: #2F2C53
+        display: flex
+        justify-content: space-between
+        align-items: center
+        &-second
+            display: flex
+            align-items: center
+            gap: 5px
+        &-img 
+            img 
+                max-width: 45px
+                border-radius: 30px
+        &-logout
+            // border: none
+            padding: 3px
+            background: none
+            color: white
+            border: 1px solid #fff
+            border-radius: 5px
+            cursor: pointer
+
+.search
+    // margin: 10px 0
+    width: 100%
+    overflow: hidden
+    &-form
+        width: 100%
+
+        input 
+            width: 100%
+            border: none
+            outline: none
+            padding: 10px 3px
+            background-color: #39375A
+            color: white
+            // color: red
+    &-list 
+        border-bottom: 1px solid #2F2C53
+
+.userSearch
+    margin: 10px 0
+    padding: 0 5px
+    display: flex
+    align-items: center
+    gap: 10px
+    cursor: pointer
+    &-img
+        img 
+            max-width: 50px
+            border-radius: 50px
+
+.usersList
+    // height: 100%
+
+.user
+    margin: 10px 0
+    padding: 0 5px
+    display: flex
+    align-items: center
+    gap: 10px
+    cursor: pointer
+    &-img
+        img 
+            max-width: 50px
+            border-radius: 50px
+    &-message 
+        font-size: 14px
+        color: lightgray
+        margin-top: 5px
