@@ -63,7 +63,9 @@
             background-color: #39375A
             color: white
             // color: red
-    &-list 
+    &-list
+        // height: 100%
+        // overflow-y: scroll
         border-bottom: 1px solid #2F2C53
 
 .userSearch
@@ -79,7 +81,8 @@
             border-radius: 50px
 
 .usersList
-    // height: 100%
+    // overflow-y: scroll
+    // height: 85%
 
 .user
     margin: 10px 0
@@ -88,10 +91,13 @@
     align-items: center
     gap: 10px
     cursor: pointer
+    &:hover
+        background-color: #5F5B8F
     &-img
         img 
             max-width: 50px
-            border-radius: 50px
+            max-height: 50px
+            border-radius: 100px
     &-message 
         font-size: 14px
         color: lightgray

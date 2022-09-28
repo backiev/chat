@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import Beauty from '../assets/god.jpg';
 import { UserList } from './UserList';
 import { UserLogin } from './UserLogin';
 import { SearchSidebar } from './SearchSidebar';
+import {users} from '../objects/users.js';
 
 export const Sidebar = () => {
+
+  const userLogged = {
+    id: 123534,
+    name: 'Bakiev',
+    img: {Beauty}
+  }
+  console.log(users);
+  
+
   return (
     <div className='sidebar'>
         
-        <UserLogin img={Beauty}/>
+        <UserLogin user={userLogged} />
         
-        <SearchSidebar/>
+        <SearchSidebar />
 
         <div className="usersList">
-            <UserList/>
-            {/* <UserList/> */}
-            <UserList/>
-            {/* <UserList/> */}
-            {/* <UserList/> */}
-            <UserList/>
+          {users.map(user => <UserList user={user} key={user.id} />)}
+            
 
         </div>
     </div>
   )
+
 }

@@ -1,15 +1,14 @@
 import React from 'react';
-// import Beauty from '../assets/god.jpg';
 
 
-export const UserLogin = ({img}) => {
-    // console.log(img);
+export const UserLogin = ({user}) => {
+  // console.log(user.img);
   return (
     <div className="userLogin">
         <div className='userLogin-logo'>Bakiev Chat</div>
         <div className='userLogin-second'>
-            <div className="userLogin-img"><img src={img} alt="woman" /></div>
-            <div className="userLogin-name">Jhon</div>
+            <div className="userLogin-img"><img src={user.img.Beauty} alt="woman" /></div>
+            <div className="userLogin-name">{user.name}</div>
             <button className="userLogin-logout">
                 Logout
             </button>
