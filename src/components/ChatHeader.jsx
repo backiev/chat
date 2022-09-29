@@ -3,10 +3,10 @@ import Cam from '../assets/cam.png';
 import More from '../assets/more.png';
 import AddPeople from '../assets/add.png';
 
-export const ChatHeader = () => {
+export const ChatHeader = ({userName}) => {
   return (
     <div className="chat-header">
-        <div className="chat-name">Jane</div>
+        <div className="chat-name">{userName}</div>
         <div className="chat-icons">
           <img src={Cam} alt="Камера" className="chat-icons__img" />
           <img src={AddPeople} alt="Добавить еще людей" className="chat-icons__img" />

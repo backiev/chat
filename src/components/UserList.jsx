@@ -2,9 +2,10 @@ import React from 'react';
 import Beauty from '../assets/god.jpg';
 
 
-export const UserList = ({user}) => {
+export const UserList = ({user, setTaggedUser}) => {
+  // console.log(setTaggedUser(1));
   return (
-    <div className="user">
+    <div className="user" onClick={() => setTaggedUser(user.id)}>
         <div className="user-img">
             <img src={user.img} alt="woman" />
         </div>
