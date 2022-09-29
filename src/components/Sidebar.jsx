@@ -11,9 +11,7 @@ export const Sidebar = () => {
     id: 123534,
     name: 'Bakiev',
     img: {Beauty}
-  }
-  console.log(users);
-  
+  }  
 
   return (
     <div className='sidebar'>
@@ -23,8 +21,8 @@ export const Sidebar = () => {
         <SearchSidebar />
 
         <div className="usersList">
+          
           {users.map(user => <UserList user={user} key={user.id} />)}
-            
 
         </div>
     </div>

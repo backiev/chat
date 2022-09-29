@@ -3,8 +3,6 @@ import Beauty from '../assets/god.jpg';
 
 
 export const UserList = ({user}) => {
-  console.log(user);
-  // const logo = require(user.img).default;
   return (
     <div className="user">
         <div className="user-img">

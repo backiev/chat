@@ -1,47 +1,80 @@
-import React from 'react';
-import Cam from '../assets/cam.png';
-import More from '../assets/more.png';
-import AddPeople from '../assets/add.png';
+import React, { useEffect, useState } from 'react';
+
 import Attach from '../assets/attach.png';
 import ImgForm from '../assets/img.png';
 import Beauty from '../assets/god.jpg';
 import {ChatUser} from './ChatUser';
+import {ChatHeader} from './ChatHeader';
+
+const messagesArray = [
+  {
+    id: 0,
+    yourMessage: false,
+    message: 'Hi!!!',
+  },
+  {
+    id: 1,
+    yourMessage: true,
+    message: 'yo',
+  },
+  {
+    id: 2,
+    yourMessage: false,
+    message: 'How u doing?',
+  },
+  {
+    id: 3,
+    yourMessage: true,
+    message: 'ALL gucci',
+  },
+];
 
 
 export const Chatbar = () => {
+
+
+  const [newMessage, setNewMessage] = useState('');
+  const [messages, setMessages] = useState(messagesArray);
+
+  const createMessage = (e) => {
+    e.preventDefault();
+
+    setMessages([...messages, {
+      id: messages.length,
+      yourMessage: true,
+      message: newMessage
+    }]);
+
+    setNewMessage('');
+
+  }
+
+  useEffect(() => {
+    console.log(messages);
+
+  })
+
   return (
     <div className='chatbar'>
-      <div className="chat-header">
-        <div className="chat-name">Jane</div>
-        <div className="chat-icons">
-          <img src={Cam} alt="Камера" className="chat-icons__img" />
-          <img src={AddPeople} alt="Добавить еще людей" className="chat-icons__img" />
-          <img src={More} alt="Больше" className="chat-icons__img" />
-        </div>
-      </div>
+      
+      <ChatHeader />
 
       <div className="chat-main">
         <div className="chat-window">
-          <ChatUser />
-          <ChatUser  />
 
-          <div className="chat-user myself">
-            <div className="chat-user__left">
-              <img src={Beauty} alt="" />
-              <p>just now</p>
-            </div>
-            <div className="chat-user__message">See you</div>
-          </div>
+
+          {messages.map((message) => <ChatUser message={message} key={message.id} />)}
+
           
         </div>
         
       </div>
-      <div className="chat-form">
-        <input type="text" placeholder='type message' />
+      <form className="chat-form">
+        <input type="text" placeholder='type message' value={newMessage} onChange={(e) => setNewMessage(e.target.value)} />
         <img src={Attach} alt="" />
         <img src={ImgForm} alt="" />
-        <button>Send</button>
-      </div>
+        <button onClick={createMessage}>Send</button>
+      </form>
 
     </div>
   )
