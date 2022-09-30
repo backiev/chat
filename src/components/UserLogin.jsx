@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 export const UserLogin = ({user}) => {
@@ -10,7 +11,7 @@ export const UserLogin = ({user}) => {
             <div className="userLogin-img"><img src={user.img.Beauty} alt="woman" /></div>
             <div className="userLogin-name">{user.name}</div>
             <button className="userLogin-logout">
-                Logout
+                <Link to="/login">Logout</Link>
             </button>
         </div>
     </div>

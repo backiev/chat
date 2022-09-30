@@ -8,11 +8,14 @@ export const Chat = () => {
   const [userTalk, setUserTalk] = useState(0);
 
   return (
-    <div className="container">
-        <div className='chat'>
-            <Sidebar setUserTalk={setUserTalk}/>
-            <Chatbar userTalk={userTalk} />
-        </div>
+    <div className='App'>
+      <div className="container">
+          <div className='chat'>
+              <Sidebar setUserTalk={setUserTalk}/>
+              <Chatbar userTalk={userTalk} />
+          </div>
+      </div>
+
     </div>
   )
 }

@@ -20,7 +20,7 @@ export const Sidebar = ({setUserTalk}) => {
         
         <UserLogin user={userLogged} />
         
-        <SearchSidebar />
+        <SearchSidebar setTaggedUser={setTaggedUser} />
 
         <div className="usersList">
           
