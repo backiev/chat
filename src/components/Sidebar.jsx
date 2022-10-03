@@ -3,7 +3,7 @@ import Beauty from '../assets/god.jpg';
 import { UserList } from './UserList';
 import { UserLogin } from './UserLogin';
 import { SearchSidebar } from './SearchSidebar';
-import {users} from '../objects/users.js';
+import { useSelector} from 'react-redux';
 
 const userLogged = {
   id: 123,
@@ -11,20 +11,21 @@ const userLogged = {
   img: {Beauty}
 }
 
-export const Sidebar = ({setUserTalk}) => {
+export const Sidebar = ({}) => {
 
-  const [taggedUser, setTaggedUser] = useState(0);
-  setUserTalk(taggedUser);
+  const users = useSelector(state => state.users.users)
+
+
   return (
     <div className='sidebar'>
         
         <UserLogin user={userLogged} />
         
-        <SearchSidebar setTaggedUser={setTaggedUser} />
+        <SearchSidebar />
 
         <div className="usersList">
           
-          {users.map(user => <UserList user={user} key={user.id} setTaggedUser={setTaggedUser} />)}
+          {users.map(user => <UserList user={user} key={user.id}/>)}
 
         </div>
     </div>

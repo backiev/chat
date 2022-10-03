@@ -5,58 +5,59 @@ import ImgForm from '../assets/img.png';
 // import Beauty from '../assets/god.jpg';
 import {ChatUser} from './ChatUser';
 import {ChatHeader} from './ChatHeader';
-import {users} from '../objects/users.js';
-import {messagesArray} from '../objects/messagesArray.js';
+// import {users} from '../objects/users.js';
+// import {messagesArray} from '../objects/messagesArray.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { addMessage } from '../features/messages/messagesSlice';
 
 
 
 
 
 
-export const Chatbar = ({userTalk}) => {
+export const Chatbar = ({}) => {
 
-  const [newMessage, setNewMessage] = useState('');
+
+  const users = useSelector(state => state.users.users);
+  const userTalk = users.find(user => user.tagged);
+  const messagesArray = useSelector(state => state.messages.messages);
+  const dispatch = useDispatch();
+
   const [messages, setMessages] = useState(messagesArray[0]);
+  const [newMessage, setNewMessage] = useState('');
+
+
 
   const createMessage = (e) => {
     e.preventDefault();
 
-    messagesArray[userTalk] = [...messages, {
+    const messageObj = {
       id: messages.length,
       idUserOnChat: 123,
+      idToUser: userTalk.id,
       yourMessage: true,
       message: newMessage
-    }];
+    };
 
-    setMessages([...messages, {
-      id: messages.length,
-      idUserOnChat: 123,
-      yourMessage: true,
-      message: newMessage
-    }]);
-
-
-
+    dispatch(addMessage(messageObj));
     setNewMessage('');
-
   }
 
   useEffect(() => {
     const chatWindow = document.querySelector('.chat-main');
     chatWindow.scrollTo(0, chatWindow.scrollHeight);
-    setMessages(messagesArray[userTalk]);
-    // console.log(messages);
+    setMessages(messagesArray[userTalk.id]);
   })
 
   return (
     <div className='chatbar'>
       
-      <ChatHeader userName={users[userTalk].name} />
+      <ChatHeader userName={users[userTalk.id].name} />
 
       <div className="chat-main">
         <div className="chat-window">
 
-          {messages.map((message) => <ChatUser message={message} key={message.id} user={users[userTalk]} />)}
+          {messages.map((message) => <ChatUser message={message} key={message.id} user={users[userTalk.id]} />)}
 
         </div>
         
